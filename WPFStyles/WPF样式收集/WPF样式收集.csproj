@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WPF样式收集</RootNamespace>
+    <AssemblyName>WPF样式收集</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="LeftMenuInfo.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\3D切图式过渡效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\My3DCubeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\My3DImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\MyRollControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D发光立方体效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\圆形警示效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\圆形警示效果\RingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Ani1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Ani2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Ani3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\MyImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D立方体波浪墙效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D粒子波浪效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D翻转\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DNA螺旋粒子动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\EllipsePendulum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingCircle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingLeft2Right.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingPendulum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingWave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Ani4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图像倾斜视差效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图像倾斜视差效果\MyImageControl2D.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片变换动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片环形旋转轮动效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片环形旋转轮动效果\MyImageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片翻转切换特效\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片翻转切换特效\MyImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\悬停视差效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴效果\Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴效果\MyGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\擦除效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\水珠效果按钮组\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\水珠效果按钮组\UCWaterDropsButtonGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\水面波纹特效\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\聚光灯查看内容\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\聚光灯查看内容\MyImageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\菜单折叠效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\菜单折叠效果\RoundMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\雪花效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pages\3D切图式过渡效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\My3DCubeControl.xaml.cs">
+      <DependentUpon>My3DCubeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\My3DImageControl.xaml.cs">
+      <DependentUpon>My3DImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\MyRollControl.xaml.cs">
+      <DependentUpon>MyRollControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D发光立方体效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\圆形警示效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\圆形警示效果\RingControl.xaml.cs">
+      <DependentUpon>RingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Ani1.xaml.cs">
+      <DependentUpon>Ani1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Ani2.xaml.cs">
+      <DependentUpon>Ani2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Ani3.xaml.cs">
+      <DependentUpon>Ani3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\MyImageControl.xaml.cs">
+      <DependentUpon>MyImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D立方体波浪墙效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D立方体波浪墙效果\Particle.cs" />
+    <Compile Include="Pages\3D立方体波浪墙效果\ParticleSystem.cs" />
+    <Compile Include="Pages\3D粒子波浪效果\Particle.cs" />
+    <Compile Include="Pages\3D粒子波浪效果\ParticleSystem.cs" />
+    <Compile Include="Pages\3D粒子波浪效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D翻转\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DNA螺旋粒子动画\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DNA螺旋粒子动画\Particle.cs" />
+    <Compile Include="Pages\DNA螺旋粒子动画\ParticleSystem.cs" />
+    <Compile Include="Pages\Loading\EllipseCircleAnimation.cs" />
+    <Compile Include="Pages\Loading\EllipsePendulum.xaml.cs">
+      <DependentUpon>EllipsePendulum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingCircle.xaml.cs">
+      <DependentUpon>LoadingCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingLeft2Right.xaml.cs">
+      <DependentUpon>LoadingLeft2Right.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingPendulum.xaml.cs">
+      <DependentUpon>LoadingPendulum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingWave.xaml.cs">
+      <DependentUpon>LoadingWave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Ani4.xaml.cs">
+      <DependentUpon>Ani4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图像倾斜视差效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图像倾斜视差效果\MyImageControl2D.xaml.cs">
+      <DependentUpon>MyImageControl2D.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片变换动画\BlockAnimation.cs" />
+    <Compile Include="Pages\图片变换动画\CircleAnimation.cs" />
+    <Compile Include="Pages\图片变换动画\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片变换动画\InterlacedAnimation.cs" />
+    <Compile Include="Pages\图片变换动画\RadialAnimation.cs" />
+    <Compile Include="Pages\图片变换动画\WaterFallAnimation.cs" />
+    <Compile Include="Pages\图片环形旋转轮动效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片环形旋转轮动效果\MyCanvas.cs" />
+    <Compile Include="Pages\图片环形旋转轮动效果\MyImageBox.xaml.cs">
+      <DependentUpon>MyImageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片翻转切换特效\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片翻转切换特效\MyImageButton.xaml.cs">
+      <DependentUpon>MyImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\悬停视差效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴效果\Expander.xaml.cs">
+      <DependentUpon>Expander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴效果\ExpanderClass.cs" />
+    <Compile Include="Pages\手风琴效果\GridLengthAnimation.cs" />
+    <Compile Include="Pages\手风琴效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴效果\MyGridControl.xaml.cs">
+      <DependentUpon>MyGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\擦除效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水珠效果按钮组\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水珠效果按钮组\UCWaterDropsButtonGroup.xaml.cs">
+      <DependentUpon>UCWaterDropsButtonGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG5.xaml.cs">
+      <DependentUpon>BG5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\Particle.cs" />
+    <Compile Include="Pages\背景动画\ParticleSystem.cs" />
+    <Compile Include="Pages\背景动画\BG4.xaml.cs">
+      <DependentUpon>BG4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\StarInfo.cs" />
+    <Compile Include="Pages\水面波纹特效\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水面波纹特效\WaterEffect.cs" />
+    <Compile Include="Pages\聚光灯查看内容\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\聚光灯查看内容\MyImageBox.xaml.cs">
+      <DependentUpon>MyImageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG1.xaml.cs">
+      <DependentUpon>BG1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG2.xaml.cs">
+      <DependentUpon>BG2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG3.xaml.cs">
+      <DependentUpon>BG3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\Triangle.cs" />
+    <Compile Include="Pages\背景动画\TriangleSystem.cs" />
+    <Compile Include="Pages\菜单折叠效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\菜单折叠效果\MyButton.cs" />
+    <Compile Include="Pages\菜单折叠效果\RoundMenuControl.xaml.cs">
+      <DependentUpon>RoundMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\雪花效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\雪花效果\MM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Pages\水面波纹特效\water.ps" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\水面波纹特效\Shader.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

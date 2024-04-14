@@ -1,0 +1,19 @@
+﻿<Page x:Class="WPF样式收集.Pages.背景动画.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.背景动画"
+     Height="600" Width="700" 
+      Title="Index">
+    <Grid>
+        <Frame x:Name="bgFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+        <WrapPanel ItemHeight="30" Width="500" VerticalAlignment="Top">
+            <Button Margin="10,10,0,0" Content="粒子背景动画" x:Name="btnBG5" Click="btnBG5_Click"   />
+            <Button Margin="10,10,0,0" Content="常规动画" x:Name="btnBG1" Click="btnBG1_Click"   />
+            <Button Margin="10,10,0,0" Content="背景灯光效果" x:Name="btnBG2" Click="btnBG2_Click"  />
+            <Button Margin="10,10,0,0" Content="平面三角形3D运动效果" x:Name="btnBG3" Click="btnBG3_Click" />
+            <Button Margin="10,10,0,0" Content="星空背景" x:Name="btnBG4" Click="btnBG4_Click"   />
+        </WrapPanel>
+    </Grid>
+</Page>

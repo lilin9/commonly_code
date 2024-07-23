@@ -1,6 +1,7 @@
 using api.Extensions;
 using api.model;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Filter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //自动注入所有的 Service 层类
 builder.Services.AddServiceFromAssembly();
+
+
+builder.Services.AddControllers(opt => {
+    //注册统一响应管理拦截器
+    opt.Filters.Add<ResponseActionFilter>();
+});
 
 //注入 MySqlDbContext
 var dbConnectionString = builder.Configuration.GetConnectionString("AppDbConnectionString");

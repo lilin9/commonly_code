@@ -18,14 +18,19 @@ const toExport = (list, fileName, sheetName, headerNames) => {
         return;
     }
 
-    const exportData = getExcelData(list, headerNames);
+    try {
+        const exportData = getExcelData(list, headerNames);
 
-    const workSheet = XLSX.utils.json_to_sheet(exportData);
-    const workBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workBook, workSheet, sheetName);
+        const workSheet = XLSX.utils.json_to_sheet(exportData);
+        const workBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workBook, workSheet, sheetName);
 
-    const exportFileName = fileName + globalUtils.generateCurrentTimestamp() + ".xlsx";
-    XLSX.writeFile(workBook, exportFileName);
+        const exportFileName = fileName + globalUtils.generateCurrentTimestamp() + ".xlsx";
+        XLSX.writeFile(workBook, exportFileName);
+    } catch (error) {
+        console.error('导出失败:', error);
+        ElMessage.error('导出失败，请稍后重试');
+    }
 }
 
 
@@ -33,25 +38,30 @@ const toExport = (list, fileName, sheetName, headerNames) => {
  * 
  * @param {string} fileName 导出的文件名
  * @param {Array} dataList 对象数组，包含sheetname名，tableData数据列表，headerNames表头中英文映射集。一个sheet对应一个数组。
- * @param {Function} tableRowBgColor 控制行背景的颜色显示的方法
+ * @param {Function} rowBgColorCallback 控制行背景的颜色显示的方法
  * @returns 
  */
-const toExportAsStyle = (fileName, dataList, tableRowBgColor) => {
+const toExportAsStyle = (fileName, dataList, rowBgColorCallback) => {
     if (!dataList || dataList.length == 0) {
         ElMessage.warning("请选择数据再导出Excel");
         return;
     }
-    //创建工作簿
-    const wb = XLSX.utils.book_new();
-    bookAppendSheet(wb, dataList, tableRowBgColor);
-    //blob下载
-    const exportFileName = fileName + globalUtils.generateCurrentTimestamp() + '.xlsx';
-    const buffer = XLSXStyle.write(wb, {type: 'binary'});
-    const blob = new Blob([s2ab(buffer)], { type: 'application/octet-stream' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = exportFileName;
-    link.click();
+    try {
+        //创建工作簿
+        const wb = XLSX.utils.book_new();
+        bookAppendSheet(wb, dataList, rowBgColorCallback);
+        //blob下载
+        const exportFileName = fileName + globalUtils.generateCurrentTimestamp() + '.xlsx';
+        const buffer = XLSXStyle.write(wb, {type: 'binary'});
+        const blob = new Blob([s2ab(buffer)], { type: 'application/octet-stream' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = exportFileName;
+        link.click();
+    } catch (error) {
+        console.error('导出失败:', error);
+        ElMessage.error('导出失败，请稍后重试');
+    }
 }
 
 
@@ -59,7 +69,9 @@ const getExcelData = (list, headerNames) => {
     return list.map(item => {
         const newItem = {};
         headerNames.forEach(header => {
-            newItem[header.label] = item[header.prop];
+            // 获取属性值，如果是 undefined 或 null 则替换为空字符串
+            const value = item[header.prop];
+            newItem[header.label] = (value === undefined || value === null) ? '' : value;
         });
         return newItem;
     });
@@ -72,7 +84,7 @@ const s2ab = (s) => {
     return buf;
 };
 
-const bookAppendSheet = (wb, dataList, tableRowBgColor = null) => {
+const bookAppendSheet = (wb, dataList, rowBgColorCallback = null) => {
     dataList.forEach(item => {
         const sheetName = item.sheetName;
         const tableData = item.tableData;
@@ -87,10 +99,10 @@ const bookAppendSheet = (wb, dataList, tableRowBgColor = null) => {
             if (rowIndex === 0) {
                 return;
             }
-            const row = tableData[rowIndex-1];
+        const row = tableData[rowIndex-1];
             let rowBgColor = 'FFFFFF';
-            if (tableRowBgColor) {
-                rowBgColor = tableRowBgColor(row);
+            if (rowBgColorCallback) {
+                rowBgColor = rowBgColorCallback(row);
             }
             if (rowBgColor) {
                 rowBgColor = rowBgColor.replace(/^#/, '');

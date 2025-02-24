@@ -112,13 +112,13 @@ namespace Commonly {
 		/// <param name="errorMessage"></param>
 		/// <returns></returns>
 		public T BatchSave<T>(Context ctx, BatchSaveModel model, out string errorMessage) {
-			var needUpDateFields = model.NeedUpdateFields.Count > 0 ?
+			var needUpDateFields = model.NeedUpdateFields is { Count: > 0 } ?
 				$"[{"\"" + string.Join("\",\"", model.NeedUpdateFields) + "\""}]" :
 				"[]";
-			var needReturnFields = model.NeedReturnFields.Count > 0 ?
+			var needReturnFields = model.NeedReturnFields is { Count: > 0 } ?
 				$"[{"\"" + string.Join("\",\"", model.NeedReturnFields) + "\""}]" :
 				"[]";
-			var theModel = model.TheModel.Count > 0 ? model.TheModel.ToString() : "[]";
+			var theModel = model.TheModel is { Count: > 0 } ? model.TheModel.ToString() : "[]";
 
 			var parameters = "{" +
 			                 $"\"NumberSearch\":\"{model.NumberSearch}\"," +

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using Commonly.Constants;
+﻿using Commonly.Constants;
 using Commonly.Models;
-using Kingdee.BOS;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using Commonly.CommonUtils;
+using Kingdee.BOS.Orm.DataEntity;
+using Context = Kingdee.BOS.Context;
 
 namespace Commonly {
 	/// <summary>
@@ -15,7 +17,7 @@ namespace Commonly {
 
 
 		/// <summary>
-		/// 查询数据库表单个字段值
+		/// 查询数据库表单个字段值，使用单一条件查询
 		/// </summary>
 		/// <param name="ctx">context上下文</param>
 		/// <param name="formId">单据唯一标识</param>
@@ -27,7 +29,7 @@ namespace Commonly {
 		public object QuerySingleField(Context ctx, 
 			string formId,
 			string whereKey,
-			string whereValue,
+			object whereValue,
 			string fieldKey, 
 			out string errorMessage) {
 			if (string.IsNullOrEmpty(formId) || string.IsNullOrEmpty(whereKey) || string.IsNullOrEmpty(fieldKey)) {
@@ -38,6 +40,39 @@ namespace Commonly {
 			var queryModel = new BillQueryModel(new BillQueryModel.Build()
 				.SetFormId(formId)
 				.SetFilterString($"{whereKey}='{whereValue}'")
+				.SetFieldKeys([fieldKey]));
+
+			var result = BillQuery(ctx, queryModel, out errorMessage);
+			if (result == null || result.Count == 0) {
+				return null;
+			}
+
+			var dicInfo = result[0];
+			return dicInfo.TryGetValue(fieldKey, out var value) ? value : null;
+		}
+
+		/// <summary>
+		/// 查询数据库表单个字段值，可以传入多个查询条件
+		/// </summary>
+		/// <param name="ctx">context上下文</param>
+		/// <param name="formId">单据唯一标识</param>
+		/// <param name="filterString">筛选条件，可添加多个</param>
+		/// <param name="fieldKey">需要查询的字段</param>
+		/// <param name="errorMessage">查询错误信息</param>
+		/// <returns></returns>
+		public object QuerySingleField(Context ctx, 
+			string formId,
+			string filterString,
+			string fieldKey, 
+			out string errorMessage) {
+			if (string.IsNullOrEmpty(formId) || string.IsNullOrEmpty(filterString) || string.IsNullOrEmpty(fieldKey)) {
+				errorMessage = "参数formId、filterString、fieldKey不能为空";
+				return null;
+			}
+
+			var queryModel = new BillQueryModel(new BillQueryModel.Build()
+				.SetFormId(formId)
+				.SetFilterString(filterString)
 				.SetFieldKeys([fieldKey]));
 
 			var result = BillQuery(ctx, queryModel, out errorMessage);
@@ -62,7 +97,7 @@ namespace Commonly {
 			string formId,
 			string billId,
 			string fieldName,
-			string fieldValue,
+			object fieldValue,
 			out string errorMessage) {
 			SaveSingleField(context, 
 				formId, 
@@ -88,7 +123,7 @@ namespace Commonly {
 			string whereKey,
 			string whereVal,
 			string fieldName,
-			string fieldValue,
+			object fieldValue,
 			out string errorMessage) {
 			//需要修改的字段
 			var updateValue = new JArray(new JObject(
@@ -104,6 +139,52 @@ namespace Commonly {
 				.SetIgnoreInteractionFlag(true));
 
 			SaveOne<object>(context, saveModel, out errorMessage);
+		}
+
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="context">上下文</param>
+        /// <param name="formId">单据标识</param>
+        /// <param name="needUpdateFields">需要修改的字段</param>
+        /// <param name="entry">需要修改的整个单据体</param>
+        /// <param name="errorMessage">错误信息</param>
+        public void BatchSave(Context context,
+			string formId, 
+			List<string> needUpdateFields,
+			DynamicObject entry, 
+            out string errorMessage) {
+            var jObjEntry = JsonUtils.Deserialize<JObject>(JsonUtils.Serialize(entry));
+            var dataArray = new JArray { jObjEntry };
+            var model = new BatchSaveModel(new BatchSaveModel.Build()
+				.SetFormId(formId)
+				.SetNeedUpdateFields(needUpdateFields)
+			.SetBatchCount(dataArray.Count <= 2 ? 1 : 2)
+			.SetTheModel(dataArray));
+
+			Instance.BatchSave<object>(context, model, out errorMessage);
+		}
+
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="context">上下文</param>
+        /// <param name="formId">单据标识</param>
+        /// <param name="needUpdateFields">需要修改的字段</param>
+        /// <param name="theModel">单据体数据，需要提供单据内码和分录内码</param>
+        /// <param name="errorMessage">错误信息</param>
+        public void BatchSave(Context context,
+			string formId, 
+			List<string> needUpdateFields,
+			JArray theModel, 
+            out string errorMessage) {
+            var model = new BatchSaveModel(new BatchSaveModel.Build()
+				.SetFormId(formId)
+				.SetNeedUpdateFields(needUpdateFields)
+			.SetBatchCount(theModel.Count <= 2 ? 1 : 2)
+			.SetTheModel(theModel));
+
+			Instance.BatchSave<object>(context, model, out errorMessage);
 		}
 	}
 }

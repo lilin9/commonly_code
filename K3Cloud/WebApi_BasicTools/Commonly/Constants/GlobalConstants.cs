@@ -12,7 +12,7 @@ namespace Commonly.Constants {
 		//单据头Id 标识
 		FId,Id,
 		//明细列表Id
-		FEntryId,
+		FEntryId, EntryId,
 		//批号 标识
 		Lot, Lot_Text, FLot, Lot_Id, FLot_Text,
 		//物料编码Id 标识
@@ -34,7 +34,7 @@ namespace Commonly.Constants {
 		//分母字段 标识
 		F_Denominator,
 		//生产套数 标识
-		F_ProductionSets,
+		F_ProductionSetsNumber,
 		//剩余生产套数
 		F_RestCost,
 		//领料套数 标识
@@ -64,7 +64,7 @@ namespace Commonly.Constants {
 		//Bom用量系数 标识
 		F_BomAmountParameter,
 		//仓库唯一Id标识
-		FStockId, 
+		StockId, FStockId, 
 		//调出仓库 标识
 		SrcStockId_Id,
 		//即时库存-库存量
@@ -104,28 +104,34 @@ namespace Commonly.Constants {
 		//领料状态
 		F_MaterialRequisition,
 		//实收数量之和
-		F_SumRealQty,
+		F_SumActualQty,
 		//供应商物料编码
 		F_SupplierMaterialNo,
 		//齐套量
-		F_SetQuantity,
+		F_SetsNumber,
 		//最小齐套量
-		F_MinimumSetQuantity,
+		F_MinSetsNumber,
+		//价税合计-本位币
+		AllAmount_LC, FAllAmount_LC,
+		//采购订单价格
+		F_CurrencyConvertPrice,
+        //计价数量
+        PriceUnitQty, FPriceUnitQty,
 
-		#endregion
+        #endregion
 
-		#region 控件标识
+        #region 控件标识
 
-		//生产加工单文本框 标识
-		F_ProduceProcessNo,
+        //生产加工单文本框 标识
+        F_ProduceProcessNo,
 		//明细表格 标识
-		Entity, FEntity, FBillEntry, InStockEntry,
-		//调拨领料单明细表格
-		TransferDirectEntry,
+		Entity, FEntity, FBillEntry, InStockEntry, POOrderEntry, FPOOrderEntry, InvInitDetail,
+        //调拨领料单明细表格
+        TransferDirectEntry,
 		//库存批号查询按钮
-		QueryInventoryLotBtn,
-		//下推生产入库单按钮 标识
-		tbPushInStorage,
+		QueryInventoryLotBtn, tbQueryStock,
+        //下推生产入库单按钮 标识
+        tbPushInStorage,
 		//批号查询 按钮
 		tbQueryLot,
 		//订单追溯按钮
@@ -158,7 +164,9 @@ namespace Commonly.Constants {
 		//委外订单
 		SUB_SUBREQORDER,
 		//其他入库单
-		STK_MISCELLANEOUS
+		STK_MISCELLANEOUS,
+		//采购订单
+		PUR_PurchaseOrder
 
 		#endregion
 	}

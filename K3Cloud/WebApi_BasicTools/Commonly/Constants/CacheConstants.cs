@@ -8,6 +8,8 @@ namespace Commonly.Constants {
 		//生产加工单的单据类型
 		ProductionProcessing_BillType,
 		//生产加工单单号
-		ProductionProcessingBillNo
-	}
+		ProductionProcessingBillNo,
+        //生产加工单选中行的仓库编码
+        ProductionProcessing_StorageCode
+    }
 }

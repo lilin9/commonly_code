@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Kingdee\K3Cloud\WebSite\Bin\</OutputPath>
+    <OutputPath>E:\Projects\Kingdee_K3Cloud\KingDeePlugins\obj\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,7 +44,7 @@
     <Compile Include="Constants\GlobalConstants.cs" />
     <Compile Include="Constants\ViewConstants.cs" />
     <Compile Include="Extensions\LinqExtension.cs" />
-    <Compile Include="Extensions\BasicTypeExtension.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="KingDeeClientApi.cs" />
     <Compile Include="Models\BatchSaveModel.cs" />
     <Compile Include="Models\BillQueryModel.cs" />
@@ -57,21 +57,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Kingdee.BOS">
-      <HintPath>D:\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.dll</HintPath>
+    <Reference Include="Kingdee.BOS, Version=9.0.116.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.BOS.DataEntity">
-      <HintPath>D:\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.DataEntity.dll</HintPath>
+    <Reference Include="Kingdee.BOS.DataEntity, Version=9.0.116.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.BOS.WebApi.Client">
-      <HintPath>D:\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.WebApi.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Kingdee.BOS.WebApi.FormService">
-      <HintPath>D:\Kingdee\K3Cloud\WebSite\bin\Kingdee.BOS.WebApi.FormService.dll</HintPath>
+    <Reference Include="Kingdee.BOS.WebApi.FormService, Version=9.0.116.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.WebApi.FormService.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.1.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:\Program Files\Kingdee\K3Cloud\WebSite\Bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>

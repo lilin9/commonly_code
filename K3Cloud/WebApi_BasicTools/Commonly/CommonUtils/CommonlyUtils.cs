@@ -6,10 +6,10 @@ using Kingdee.BOS.Orm.DataEntity;
 using Kingdee.BOS.Util;
 
 namespace Commonly.CommonUtils {
-	/// <summary>
-	/// 存放一些常用的工具方法
-	/// </summary>
-	public static class CommonlyUtils {
+    /// <summary>
+    /// 存放一些常用的工具方法
+    /// </summary>
+    public static class CommonlyUtils {
 		/// <summary>
 		/// 判断传入的字符串是否可以解析为数字类型
 		/// </summary>
@@ -104,13 +104,13 @@ namespace Commonly.CommonUtils {
 		public static string GetCurrencyPageShow(string currencyKey) {
 			var showText = "";
 			
-			//人民币
+			//RMB
 			if (currencyKey == DictionaryConstants.Cny) {
-				showText = ViewConstants.人民币.ToString();
+				showText = ViewConstants.RMB.ToString();
 			}
-			//美元
+			//USD
 			if (currencyKey == DictionaryConstants.Usd) {
-				showText = ViewConstants.美元.ToString();
+				showText = ViewConstants.USD.ToString();
 			}
 
 			return showText;
